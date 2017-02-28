@@ -1,0 +1,15 @@
+<aspectj>
+  <aspects>
+    <aspect name="org.uowlog.Continuity"/>
+  </aspects>
+  <weaver options="">
+    <include within="scala.concurrent.impl..*"/>
+    <include within="akka.actor..*"/>
+    <include within="akka.dispatch..*"/>
+    <include within="akka.event..*"/>
+    <include within="akka.pattern..*"/>
+    <include within="akka.persistence..*"/>
+    <include within="akka.remote..*"/>
+    <include within="akka.testkit..*"/>
+  </weaver>
+</aspectj>
