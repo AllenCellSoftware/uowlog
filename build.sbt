@@ -24,6 +24,12 @@ lazy val commonSettings = Seq(
   publishMavenStyle := true
 )
 
+commonSettings
+
+// Disable publication from root project
+publishLocal := {}
+publish      := {}
+
 lazy val core = project.settings(commonSettings)
 lazy val http = project.settings(commonSettings).dependsOn(core % "test->test;compile->compile")
 

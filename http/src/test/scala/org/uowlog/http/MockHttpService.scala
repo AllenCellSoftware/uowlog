@@ -92,9 +92,7 @@ trait MockHttpService extends HttpClient with AvailablePort {
       _actual.add(rc.request -> rf)
       rf
     }
-    val wrapped = handleRejections(rejections =>
-      Some(complete((UnprocessableEntity, List(RawHeader("X-TestFailureWithRejections", "blork!")), rejections)))
-    )(progression)
+    val wrapped = handleRejections(encodeRejections)(progression)
     val bindingFuture = Http().bindAndHandle(wrapped, "0.0.0.0", port)
     stoppedPromise.completeWith(stopPromise.future.flatMap(_ => bindingFuture).flatMap(_.unbind()).map(_ => Done))
     bindingFuture.map(_ => Done)
@@ -139,5 +137,9 @@ object MockHttpService {
     val num = ois.readInt
     for (_ <- 1 to num) yield ois.readObject().asInstanceOf[Rejection]
   }
+
+  val encodeRejections = RejectionHandler.newBuilder.handleAll[Rejection](rejections =>
+    complete((UnprocessableEntity, List(RawHeader("X-TestFailureWithRejections", "blork!")), rejections))
+  ).result
 }
 
