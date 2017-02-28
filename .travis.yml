@@ -1,0 +1,7 @@
+language: scala
+scala:
+  - 2.11.8
+  - 2.12.1
+
+before_script: scripts/prepare_build_version.sh
+after_script: scripts/tag_and_push_version.sh
