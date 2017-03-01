@@ -1,15 +1,12 @@
 language: scala
 scala:
-  - 2.11.8
-  - 2.12.1
-
-# before_script: scripts/prepare_build_version.sh
-# after_script: scripts/tag_and_push_version.sh
-
-# deploy:
-#   provider: bintray
-#   file: descriptor.json
-#   user: popiel
-#   key: Oops
-#   dry-run: true
-
+- 2.11.8
+- 2.12.1
+before_script: scripts/prepare_build_version.sh
+after_script: scripts/tag_and_push_version.sh
+deploy:
+  provider: bintray
+  file: descriptor.json
+  user: popiel
+  key:
+    secure: gRzE1bpckKbBo5COYaRWLkWkze3Km/Cic5lVmwE2l9AO8XRJEVu644wxELNXy8I4GJxuajJ/TMskvyUDY/25UJPcG88fX/FDWx/7Iw7vzdGIxIxppHsEaZSeRcUuRIlxpMEUSYPjCViUBdxflhjM06yDrqW6e2+ofFwuxYQNhZ9vzc2Whkgia+maqbcTC8GLgBwlDUXR0px0lgTBNNS21UnfXvOMqrc4Y3gd9rz7/FtqS4FGrLvwZ1vKYfbrX35SsOE7RmcYCKaLWTI0ATYWWru2cbhPDpf5LvT1w2zq2XNqUDYL4NG5Q4nM/H//VDW2+82Xqq5xYJuxa09wgIdXL8XypjODyZFeAElbHwkXdhiVkpxWskMhrl38qbUi8nBfN1FK9xYArjrjWI1xvZmAMOofYsxu7fyRhJNk5JRYoeX3ctwAgP84SnM/jRsJI/tPezA8+jIDDtbQSncIEv2J3AwslmOVAMJaC7xZgo/FAuPwiP55Tk8IRdt4uQkgMxANflbHbIop+HkKkVkPkASBEjk0AyOwLYqw2mGUo95IFipHteSAPE8NjlNSNYQaVwnYEUG5+tE4rt6eHKrOC0zxA6s1UVHH9rd1hnUI52xixrZtw375o+k32jCHBN8cIb9zTGdZzTp6Yf1ryMDCVE2I9ANT1GCdAc0qidFQK963dA4=
