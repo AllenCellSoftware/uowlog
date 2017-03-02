@@ -12,9 +12,11 @@
 ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 ** implied. See the License for the specific language governing
 ** permissions and limitations under the License.
-*/    
+*/
 
 lazy val commonSettings = Seq(
+  bintrayOrganization := Some("allencellsoftware"),
+  bintrayRepository := "uowlog",
   organization := "org.uowlog",
   version      := "1.1-SNAPSHOT",
   scalaVersion := "2.12.1",
