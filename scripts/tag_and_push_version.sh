@@ -9,4 +9,6 @@ git config --global user.email "nobody@example.com"
 git config --global user.name  "TravisCI automated build"
 git commit -q -m "Version tagging for version $newversion"
 git tag v$version
-git push https://popiel:$GITHUB_TAGGING_TOKEN@github.com/AllenCellSoftware/uowlog.git v$version
+
+set -e
+git push -q https://popiel:$GITHUB_TAGGING_TOKEN@github.com/AllenCellSoftware/uowlog.git v$version

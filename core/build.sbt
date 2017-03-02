@@ -44,6 +44,3 @@ javaOptions in Test <++= AspectjKeys.weaverOptions in Aspectj
 products in Compile <++= products in Aspectj
 products in run <<= products in Compile
 
-
-publishTo := Some("Artifactory Realm" at "https://artifactory.corp.alleninstitute.org/artifactory/sbt-snapshot-local")
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
