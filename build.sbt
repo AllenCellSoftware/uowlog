@@ -16,7 +16,7 @@
 
 lazy val commonSettings = Seq(
   organization := "org.uowlog",
-  version      := "1.1-SNAPSHOT",
+version := "1.0.50",
   scalaVersion := "2.12.1",
   crossScalaVersions := Seq("2.11.8", "2.12.1"),
 
