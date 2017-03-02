@@ -2,7 +2,7 @@
 
 set -ex
 
-oldversion=`sbt -no-colors -batch 'show version' | tail -1 | sed 's/\[info\]  *//'`
+oldversion=`sbt -no-colors -batch 'show version' | tail -1 | sed 's/\[info\][ \t]*//'`
 case $oldversion in
 ( *-SNAPSHOT ) ;;
 ( * ) echo Bad version for prepare; version must end in -SNAPSHOT, but was: $version; exit 1;;
