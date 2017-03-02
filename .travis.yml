@@ -3,6 +3,9 @@ jdk:
 - oraclejdk8
 scala:
 - 2.12.1
+branches:
+  only:
+  - master
 script:
 - scripts/do_build.sh
 deploy:
