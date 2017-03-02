@@ -27,5 +27,5 @@ echo Building version $newversion
 # force git into detached HEAD
 git checkout -q HEAD@{0}
 
-perl -i -pe "s/^version := \"$oldversion\"/version := \"$newversion\"/" build.sbt
+perl -i -pe "s/^ *version := \"$oldversion\"/version := \"$newversion\"/" build.sbt
 
