@@ -18,7 +18,7 @@ lazy val commonSettings = Seq(
   bintrayOrganization := Some("allencellsoftware"),
   bintrayRepository := "uowlog",
   organization := "org.uowlog",
-  version      := "1.1-SNAPSHOT",
+version := "1.0.53",
   scalaVersion := "2.12.1",
   crossScalaVersions := Seq("2.11.8", "2.12.1"),
 
