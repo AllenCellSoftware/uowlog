@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -ex
 
 version=`sbt -no-colors -batch 'show version' | tail -1 | sed 's/\[info\] //'`
 

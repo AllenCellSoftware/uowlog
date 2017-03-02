@@ -20,20 +20,18 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.12.1",
   crossScalaVersions := Seq("2.11.8", "2.12.1"),
 
+  description  := "Unit Of Work metrics and logging framework for Scala",
+  homepage     := Some(new java.net.URL("https://github.com/AllenCellSoftware/uowlog")),
+
   fork := true,
   publishMavenStyle := true,
+ 
+  startYear := Some(2017),
+  licenses := Seq(("Apache-2.0", new java.net.URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))),
+  scmInfo := Some(ScmInfo(new java.net.URL("http://github.com/AllenCellSoftware/uowlog/tree/master"), "scm:git:git://github.com/AllenCellSoftware/uowlog.git", Some("scm:git:ssh://github.com:AllenCellSoftware/uowlog.git"))),
 
   pomExtra := (
-    <name>org.uowlog:uowlog</name>
-++  <description>Unit Of Work metrics and logging framework for Scala.</description>
-++  <url>https://github.com/AllenCellSoftware/uowlog</url>
-++  <licenses>
-      <license>
-        <name>The Apache License, Version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      </license>
-    </licenses>
-++  <developers>
+    <developers>
       <developer>
         <name>T. Alexander Popiel</name>
         <email>alexp@alleninstitute.org</email>
@@ -41,12 +39,15 @@ lazy val commonSettings = Seq(
         <organizationUrl>http://www.alleninstitute.org</organizationUrl>
       </developer>
     </developers>
-++  <scm>
-      <connection>scm:git:git://github.com/AllenCellSoftware/uowlog.git</connection>
-      <developerConnection>scm:git:ssh://github.com:AllenCellSoftware/uowlog.git</developerConnection>
-      <url>http://github.com/AllenCellSoftware/uowlog/tree/master</url>
-    </scm>
-  )
+  ),
+
+  // Make sure we don't publish repository information
+  pomPostProcess := { (node: scala.xml.Node) =>
+    node match {
+      case elem: scala.xml.Elem if elem.label == "project" => elem.copy(child = elem.child.filter(_.label != "repositories"))
+      case _ => node
+    }
+  }
 )
 
 commonSettings

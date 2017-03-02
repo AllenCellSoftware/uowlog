@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -ex
 
 oldversion=`sbt -no-colors -batch 'show version' | tail -1 | sed 's/\[info\] //'`
 case $oldversion in
