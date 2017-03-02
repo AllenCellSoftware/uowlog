@@ -2,10 +2,14 @@ language: scala
 jdk:
 - oraclejdk8
 scala:
-- 2.11.8
 - 2.12.1
 before_script: scripts/prepare_build_version.sh
-after_script: scripts/tag_and_push_version.sh
+script:
+- sbt clean
+- sbt core/lock    core/+test    core/+packagedArtifacts
+- sbt http/lock    http/+test    http/+packagedArtifacts
+- sbt testkit/lock testkit/+test testkit/+packagedArtifacts
+after_success: scripts/tag_and_push_version.sh
 deploy:
   provider: bintray
   file: descriptor.json

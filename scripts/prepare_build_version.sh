@@ -2,6 +2,8 @@
 
 set -ex
 
+find ~/.ivy2/local -maxdepth 3 -name \*-SNAPSHOT -print | xargs rm -rf
+
 oldversion=`sbt -no-colors -batch 'show version' | tail -1 | sed 's/\[info\][ \t]*//'`
 case $oldversion in
 ( *-SNAPSHOT ) ;;
@@ -26,9 +28,4 @@ echo Building version $newversion
 git checkout -q HEAD@{0}
 
 perl -i -pe "s/^version := \"$oldversion\"/version := \"$newversion\"/" build.sbt
-sbt lock
-git add build.sbt lock.sbt
-git config --global user.email "nobody@example.com"
-git config --global user.name  "TravisCI automated build"
-git commit -q -m "Version tagging for version $newversion"
 
