@@ -8,4 +8,5 @@ sbt clean
 sbt core/lock    +core/test    +core/packagedArtifacts
 sbt http/lock    +http/test    +http/packagedArtifacts
 sbt testkit/lock +testkit/test +testkit/packagedArtifacts
+sbt makeSite
 [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ] && scripts/tag_and_push_version.sh && sbt +publish
