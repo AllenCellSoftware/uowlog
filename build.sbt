@@ -61,3 +61,14 @@ publish      := {}
 lazy val core      = project.settings(commonSettings)
 lazy val http      = project.settings(commonSettings).dependsOn(core)
 lazy val testkit   = project.settings(commonSettings).dependsOn(core, http)
+
+lazy val root = project.in(file("."))
+  .settings(commonSettings)
+  .enablePlugins(ScalaUnidocPlugin, GhpagesPlugin)
+  .settings(
+    name := "uowlog",
+    siteSubdirName in ScalaUnidoc := "latest/api",
+    addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), siteSubdirName in ScalaUnidoc),
+    git.remoteRepo := "git@github.com:allencellsoftware/uowlog.git"
+  )
+  .aggregate(core, http, testkit)

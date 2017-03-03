@@ -17,3 +17,6 @@
 addSbtPlugin("com.typesafe.sbt" % "sbt-aspectj" % "0.10.6")
 addSbtPlugin("com.github.tkawachi" % "sbt-lock" % "0.3.0")
 addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
+addSbtPlugin("com.eed3si9n" % "sbt-unidoc" % "0.4.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.2.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.0")
