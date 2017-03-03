@@ -14,7 +14,7 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog
+package org.uowlog.testkit
 
 import ch.qos.logback.classic.spi._
 import ch.qos.logback.core._
@@ -25,6 +25,8 @@ import java.util.ConcurrentModificationException
 import java.util.concurrent.ConcurrentLinkedQueue
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.function.Predicate
+
+import org.uowlog._
 
 import scala.collection.JavaConversions._
 import scala.collection.concurrent.TrieMap

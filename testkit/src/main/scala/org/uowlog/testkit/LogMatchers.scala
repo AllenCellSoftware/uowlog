@@ -14,13 +14,14 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog
+package org.uowlog.testkit
 
 import org.scalatest.Matchers
 import org.scalatest.enablers.Messaging
 import org.scalatest.matchers.{BeMatcher, HavePropertyMatchResult, HavePropertyMatcher, MatchResult, Matcher}
 import org.scalatest.words.ResultOfMessageWordApplication
 import org.slf4j.event.Level
+import org.uowlog._
 
 import scala.collection.JavaConversions._
 import scala.util.Try

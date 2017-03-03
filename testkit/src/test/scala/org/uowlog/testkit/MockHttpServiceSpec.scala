@@ -14,7 +14,7 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog.http
+package org.uowlog.testkit
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.client.RequestBuilding._
@@ -28,6 +28,7 @@ import org.scalatest.concurrent._
 import org.scalatest.exceptions.TestFailedException
 import org.scalatest.time._
 import org.uowlog._
+import org.uowlog.http._
 import scala.concurrent.Await
 import scala.concurrent.duration._
 

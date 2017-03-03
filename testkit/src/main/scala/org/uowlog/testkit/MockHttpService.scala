@@ -14,7 +14,7 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog.http
+package org.uowlog.testkit
 
 import akka.Done
 import akka.actor.ActorSystem
@@ -30,6 +30,8 @@ import akka.stream.{ActorMaterializer, Materializer}
 import akka.stream.scaladsl.{BidiFlow, Keep}
 import com.typesafe.config.{Config, ConfigFactory}
 import org.scalatest.Assertions
+import org.uowlog._
+import org.uowlog.http._
 import scala.annotation.tailrec
 import scala.collection.JavaConversions._
 import scala.concurrent.{Await, Future, Promise}

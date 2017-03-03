@@ -24,6 +24,7 @@ import akka.util.Timeout
 import org.scalatest.concurrent.{Eventually, PatienceConfiguration}
 import org.scalatest.time.{Millis, Seconds, Span}
 import org.scalatest.{FunSpecLike, Inspectors, Matchers}
+import org.uowlog.testkit._
 
 import scala.collection.JavaConversions._
 import scala.concurrent.{Await, ExecutionContext, Future, Promise}

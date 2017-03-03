@@ -14,13 +14,14 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog
+package org.uowlog.testkit
 
 import ch.qos.logback.classic._
 import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core._
 import ch.qos.logback.core.encoder.LayoutWrappingEncoder
 import org.scalatest.{Args, BeforeAndAfterAll, BeforeAndAfterEach, Suite}
+import org.uowlog._
 import scala.collection.JavaConversions._
 import scala.annotation.tailrec
 import scala.util.control.NonFatal

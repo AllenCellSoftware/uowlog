@@ -21,6 +21,7 @@ import org.scalatest.Inspectors._
 import org.scalatest.concurrent.Eventually
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
+import org.uowlog.testkit._
 import scala.collection.JavaConversions._
 import spray.json._
 

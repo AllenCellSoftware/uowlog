@@ -25,6 +25,7 @@ import org.scalatest._
 import org.scalatest.concurrent._
 import org.scalatest.time._
 import org.uowlog._
+import org.uowlog.testkit._
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
