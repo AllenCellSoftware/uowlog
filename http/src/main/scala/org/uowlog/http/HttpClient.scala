@@ -40,8 +40,10 @@ class HttpError(val status: StatusCode, val message: String) extends RuntimeExce
   def this(actual: StatusCode, expected: StatusCode) = this(actual, s"Expected status ${expected.intValue} but got status ${actual.intValue}: $actual")
 }
 
-abstract class HttpClient(val config: Config)(implicit val system: ActorSystem, val materializer: Materializer) extends UOWLogging {
-  def this()(implicit system: ActorSystem, materializer: Materializer) = this(system.settings.config)
+trait HttpClientImpl extends UOWLogging {
+  def config: Config
+  implicit val system: ActorSystem
+  implicit def materializer: Materializer
 
   import system.dispatcher
 
@@ -89,4 +91,8 @@ abstract class HttpClient(val config: Config)(implicit val system: ActorSystem, 
       .run()
     promise.future
   }
+}
+
+abstract class HttpClient(val config: Config)(implicit val system: ActorSystem, val materializer: Materializer) extends HttpClientImpl {
+  def this()(implicit system: ActorSystem, materializer: Materializer) = this(system.settings.config)
 }

@@ -40,7 +40,7 @@ import scala.util.{Try, Success, Failure}
 import scala.util.control.NonFatal
 
 /** Mixin trait for testing an HttpClient with a fake service. */
-trait MockHttpService extends HttpClient with AvailablePort {
+trait MockHttpService extends HttpClientImpl with AvailablePort {
   /** A set of routes to handle the expected requests.
    * Each route will be used once, in sequence;
    * the first request will go to the first route,
