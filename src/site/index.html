@@ -6,7 +6,41 @@
 This is a placeholder website until someone gets around to building a better one.
 Unfortunately, there's only so many hours in a day!
 </p>
+<h2>Using uowlog</h2>
+Add to your project/plugins.sbt:
+<pre>
+addSbtPlugin("com.typesafe.sbt" % "sbt-aspectj" % "0.10.6")
+</pre>
+
+Add to your build.sbt:
+<pre>
+libraryDependencies += "org.aspectj" % "aspectjweaver" % "1.8.9"
+libraryDependencies += "org.aspectj" % "aspectjtools"  % "1.8.9"
+
+libraryDependencies += "com.typesafe.akka" %% "akka-actor"   % "2.4.14"
+libraryDependencies += "com.typesafe.akka" %% "akka-remote"  % "2.4.14"
+libraryDependencies += "com.typesafe.akka" %% "akka-slf4j"   % "2.4.14"
+libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % "2.4.14" % "test"
+
+libraryDependencies += "org.uowlog" %% "uowlog" % "[1.0,1.1["
+
+fork := true
+fork in (Test,run) := true
+aspectjSettings
+AspectjKeys.compileOnly in Aspectj := true
+publishArtifact in Test := true
+
+javaOptions in run <++= AspectjKeys.weaverOptions in Aspectj
+javaOptions in Test <++= AspectjKeys.weaverOptions in Aspectj
+products in Compile <++= products in Aspectj
+products in run <<= products in Compile
+
+resolvers += Resolver.jcenterRepo
+</pre>
+
 <h2><a href="latest/api/index.html">API documentation</a></h2>
+<h2><a href="https://github.com/AllenCellSoftware/uowlog">Source code (including this website! (please help make it better))</a></h2>
+<h2><a href="https://github.com/AllenCellSoftware/uowlog-demo">Trivial contrived sample code</a></h2>
 <h2><a href="https://orguowlog.slack.com/messages/builds/">Build notifications on Slack</a></h2>
 <p><a href="https://orguowlog.slack.com/signup">Sign up for Slack account in the org.uowlog team</a></p>
 </body>

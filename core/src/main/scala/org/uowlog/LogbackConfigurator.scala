@@ -34,6 +34,7 @@ import scala.util.control.NonFatal
  *
  * Various options can be configured via [[https://github.com/typesafehub/config Typesafe Config]], using the following keys:
  * {{{
+ * uowlog.group
  * uowlog.program
  * uowlog.removeDomainSuffix
  * uowlog.loggerLevel
