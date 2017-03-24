@@ -48,13 +48,18 @@ trait LogFileCapture extends BeforeAndAfterAll with BeforeAndAfterEach with UOWL
     case _ => Thread.sleep(100); root
   }
 
-  override protected def beforeAll {
-    super.beforeAll()
+  /** Idempotently redirect all logging into memory buffers.  This is called automatically from beforeAll, but may be called independently to alleviate trait linearization issues. */
+  def hijackLog() {
     for {
       appender <- root.iteratorForAppenders
       if !(appender.isInstanceOf[UOWTestAppender])
     } root.detachAppender(appender)
-    root.addAppender(logFile)
+    if (!(root.iteratorForAppenders contains logFile)) root.addAppender(logFile)
+  }
+
+  override protected def beforeAll {
+    super.beforeAll()
+    hijackLog()
   }
 
   override protected def beforeEach {
