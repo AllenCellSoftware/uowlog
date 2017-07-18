@@ -54,7 +54,7 @@ trait HttpClientImpl extends UOWLogging {
   def settings = ConnectionPoolSettings(if (config.hasPath(s"$serviceName.http")) config.getConfig(s"$serviceName.http").withFallback(config) else config)
 
   def withContext[I,O,T](f: I => O): ((I, T)) => (O, T) = { case (i, t) => f(i) -> t }
-  def addProvenanceFlow[T] = Flow.fromFunction(withContext[HttpRequest, HttpRequest, T](addHeader("X-Provenance-Id", UnitOfWork.createNextProvenanceId(REMOTE).toString)))
+  def addProvenanceFlow[T] = Flow.fromFunction(withContext[HttpRequest, HttpRequest, T](addHeader("X-ProvenanceId", UnitOfWork.createNextProvenanceId(REMOTE).toString)))
   def flow[T] = addProvenanceFlow[T].via(Http().cachedHostConnectionPool[T](host, port, settings))
   def wrapHttpInUOW[T](uowName: String): BidiFlow[
     (Try[HttpResponse], (UnitOfWork, T)), (Try[HttpResponse], T),
