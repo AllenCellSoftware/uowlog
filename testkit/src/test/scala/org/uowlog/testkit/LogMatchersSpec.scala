@@ -14,12 +14,14 @@
 ** permissions and limitations under the License.
 */
 
-package org.uowlog
+package org.uowlog.testkit
 
 import org.scalatest._
 import org.scalatest.Inspectors._
 import org.slf4j.event.Level
 import spray.json._
+
+import org.uowlog._
 
 class LogMatchersSpec extends FunSpec with Matchers with LogMatchers with EventMatchers with UOWMatchers {
   val simpleEvent = new UOWTestAppender.Entry("""{"time":"2017-01-04T19:08:17.803Z","type":"EVENT","level":"INFO","host":"alexp-desktop","program":"default","process":3040,"thread":"pool-1-thread-1-ScalaTest-running-MonitorLayoutSpec","provenance":"none.application.40fbadbd-4f41-4d16-8295-2a114195f568:10,2","class":"org.uowlog.MonitorLayoutSpec","method":"$anonfun$new$9","file":"MonitorLayoutSpec.scala:37","message":"ids"}""")

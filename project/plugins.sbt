@@ -14,9 +14,10 @@
 ** permissions and limitations under the License.
 */    
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-aspectj" % "0.10.6")
-addSbtPlugin("com.github.tkawachi" % "sbt-lock" % "0.3.0")
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
-addSbtPlugin("com.eed3si9n" % "sbt-unidoc" % "0.4.0")
-addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.2.0")
-addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.0")
+addSbtPlugin("com.lightbend.sbt" % "sbt-aspectj" % "0.11.0")
+addSbtPlugin("com.github.tkawachi" % "sbt-lock" % "0.5.0")
+//addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
+addSbtPlugin("org.foundweekends" % "sbt-bintray" % "0.5.4")
+addSbtPlugin("com.eed3si9n" % "sbt-unidoc" % "0.4.2")
+addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.3.2")
+addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.2")

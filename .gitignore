@@ -16,3 +16,4 @@ run/*
 !.keep
 *.hide
 _ajdump/
+/project/build.properties
